@@ -1,0 +1,8 @@
+1. Install mpich
+sudo apt-get install mpich 
+
+2. cek apakah sudah terinstall
+which mpiexec 
+
+3. install depedency untuk python
+sudo pip install mpi4py
