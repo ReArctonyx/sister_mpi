@@ -12,7 +12,6 @@ def local_loop(num_steps,begin,end):
     for i in range(begin,end):
         x = (i+0.5)*step
         sum = sum + 4.0/(1.0+x*x)
-    print (sum)
     return sum    
 
 # fungsi Pi
@@ -32,7 +31,9 @@ def Pi(num_steps):
     
     # cari local_sum
     # local_sum merupakan hasil dari memanggil fungsi local_loop
-    local_sum = local_loop(num_steps,int(rank*var),int((rank+1)*var))
+    begin = int(rank*var)
+    end = int((rank+1)*var)
+    local_sum = local_loop(num_steps,begin,end)
     
     # lakukan penjumlahan dari local_sum proses-proses yang ada ke proses 0
     # bisa digunakan reduce atau p2p sum
